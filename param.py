@@ -468,6 +468,7 @@ Variability = ["Variability_always", "Variability_tr10", "Variability_tr0"]
 #- different application to the variability
 # =============================================================================
 
+"""
 DOSSIER = "../plot/param21/"
 Number_of_simulation = 40
 numbreDePoint = 10
@@ -490,18 +491,19 @@ FinalTime = [100]
 Collapse = ["Collapse_proba", "Collapse_proba_per_time_unit"]
 Applicant = ["N", "W", "NW"]
 Variability = ["Variability_always", "Variability_until", "Variability_10", "Variability_only", "Variability_tr10", "Variability_tr0"]
-
+"""
 
 # =============================================================================
 # param 22 : Better set of param (AND RATIO ) TO RUN !!
 # =============================================================================
-"""
+
+
 DOSSIER = "../plot/param22/"
 Number_of_simulation = 40
 numbreDePoint = 10
 
-#N0 = [1.0]
-#W0 = [2.0]
+N0 = [1.0]
+W0 = [2.0]
 
 A = [0.2] 
 M = [0.5, 1., 3.]
@@ -516,4 +518,4 @@ FinalTime = [100]
 Collapse = ["Collapse_proba", "Collapse_proba_per_time_unit"]
 Applicant = ["N", "W", "NW"]
 Variability = ["Variability_always", "Variability_until", "Variability_10", "Variability_only", "Variability_tr10", "Variability_tr0"]
-"""
+

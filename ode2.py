@@ -70,6 +70,7 @@ class Ode:
         # Fire !
         self.Fire_param = Fire_param
         self.Fire_events = self.fire_events()
+        self.Fire_strength = np.random.exponential(**self.Fire_param["Param_strength"], size = self.NbreIte)
         return
 
 
@@ -113,23 +114,22 @@ class Ode:
         return Freq_fire
     
     
-    def density_burned(self, n, w):
+    def density_burned(self, n, w, i):
         """when a fire occur, give the density burned by the fire for N and W"""
         model_fire = self.Fire_param["model"]
         alpha = self.Fire_param["Param_coupled"]["alpha"]
         beta = self.Fire_param["Param_coupled"]["beta"] 
         if(model_fire == "proportionnal"):
-            ampl_fire = np.random.exponential(**self.Fire_param["Param_strength"])
-            n_burned = ampl_fire*n
-            w_burned = ampl_fire*w
+            
+            n_burned = self.Fire_strength[i]*n
+            w_burned = self.Fire_strength[i]*w
         elif(model_fire == "coupled"):
-            ampl_fire = np.random.exponential(**self.Fire_param["Param_strength"])
             ############################################################################################
             # Remark :
             # previous W continues to impact the strength of the fire even if they are not anymore W ...
             ############################################################################################
-            n_burned = ampl_fire*(n+alpha*w)
-            w_burned = beta*ampl_fire*(n+alpha*w)
+            n_burned = self.Fire_strength[i]*(n+alpha*w)
+            w_burned = beta*self.Fire_strength[i]*(n+alpha*w)
 # =============================================================================
 #             # if all the dead wood is burned, the fire stop !!
 # =============================================================================
@@ -224,7 +224,7 @@ class Ode:
 #                    Init = Y[c]
             else:
                 # fire !
-                Init = Y[c-1] - self.density_burned(*Y[c-1])
+                Init = Y[c-1] - self.density_burned(*Y[c-1], c)
    
 #                Y[c] = np.array([np.NAN, np.NAN])
                 if(Init[0] < 0):
@@ -247,8 +247,9 @@ class Ode:
             self.solve_by_part()
             print("you forgot to lunch the simulation ! ")
 ###############################################
-        plt.clf()
-        plt.cla()
+        if(generation):
+            plt.clf()
+            plt.cla()
 ###############################################
 
         
