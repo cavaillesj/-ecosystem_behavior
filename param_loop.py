@@ -234,25 +234,26 @@ dt = 0.1
 # =============================================================================
 # Study loop 6, new measures, and other correction see simulation 21
 # =============================================================================
+"""
 DOSSIER = "../plot/study_loop_6/"
 
-#A = [0., 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9] 
+A = [0., 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9] 
 Mold = [0.5, 1., 2., 4., 8.]
 M = [0.1, 0.3, 0.6, 0.7, 0.8, 0.9, 1.5]
-Mt = np.sort(Mold + M)
+M = np.sort(Mold + M)
 
 
 StrengthOld = [0.00005, 0.0001, 0.0002, 0.0005, 0.001, 0.002, 0.005, 0.01, 0.02]
 Strength = [0.0003, 0.0004, 0.0006, 0.0007, 0.0008, 0.0009, 0.0015]
-Strengtht = np.sort(StrengthOld + Strength)
+Strength = np.sort(StrengthOld + Strength)
 
 AlphaOld = [1, 2, 5, 10, 20, 40]
 Alpha = [3, 4, 6, 7, 8, 9]
-Alphat = np.sort(AlphaOld + Alpha)
+Alpha = np.sort(AlphaOld + Alpha)
 
-BetaOld = np.array([0.5, 1., 2., 4., 8.])
+BetaOld = [0.5, 1., 2., 4., 8.]
 Beta = [0.1, 0.2, 0.3, 0.4, 0.7]
-Betat = np.sort(BetaOld+ Beta)
+Beta = np.sort(BetaOld+ Beta)
 
 FinalTime = [2, 4, 6, 8, 10, 20, 40, 60, 80, 100]
 
@@ -287,4 +288,56 @@ Param = {"n0":N0,
         "finalTime":FinalTime}
 
 Freq = [0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.2, 2., 3., 5., 7., 9.]
+dt = 0.1
+"""
+
+
+
+# =============================================================================
+# Study loop 7, more freq (large range) and more value
+# =============================================================================
+DOSSIER = "../plot/study_loop_7/"
+
+A = [0., 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9] 
+
+M = np.array([0.1, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1. , 1.5, 2. , 4. , 8. ])
+Strength = np.array([5.0e-05, 1.0e-04, 2.0e-04, 3.0e-04, 4.0e-04, 5.0e-04, 6.0e-04,
+       7.0e-04, 8.0e-04, 9.0e-04, 1.0e-03, 1.5e-03, 2.0e-03, 5.0e-03,
+       1.0e-02, 2.0e-02])
+Alpha = np.array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 20, 40])
+Beta = np.array([0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 1. , 2. , 4. , 8. ])
+
+FinalTime = [2, 4, 6, 8, 10, 20, 40, 60, 80, 100]
+
+tot = len(A)+len(M)+len(Strength)+len(Alpha)+len(Beta)+len(FinalTime)
+
+n0_default = 1.
+w0_default = 0.    # equilibirum or not ??
+finalTime_default = 100
+a_default = 0.2
+m_default = 2.
+strength_default = 0.002
+alpha_default = 20
+beta_default = 2.
+
+
+n0 = n0_default
+w0 = w0_default
+a = a_default
+m = m_default
+strength = strength_default
+alpha = alpha_default
+beta = beta_default
+finalTime = finalTime_default
+
+Param = {"n0":N0,
+        "w0":W0,
+        "a":A,
+        "m":M,
+        "strength":Strength,
+        "alpha":Alpha,
+        "beta":Beta,
+        "finalTime":FinalTime}
+
+Freq = [0.0001, 0.0002, 0.0005, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.2, 2., 3., 5., 7., 10., 20.]
 dt = 0.1
