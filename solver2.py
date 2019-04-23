@@ -68,8 +68,8 @@ class Solver:
             else:
                 Time = Time[:indice]
                 X = X[:indice]
-                a, b, coef, p_value, err = stats.linregress(Time, -np.log(1-X))
-                return 1-np.exp(-a) 
+        a, b, coef, p_value, err = stats.linregress(Time, -np.log(1-X))
+        return 1-np.exp(-a)
 
 
     def collapse_proba(self):
