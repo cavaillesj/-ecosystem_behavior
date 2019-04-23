@@ -494,10 +494,10 @@ Variability = ["Variability_always", "Variability_until", "Variability_10", "Var
 """
 
 # =============================================================================
-# param 22 : Better set of param (AND RATIO ) TO RUN !!
+# param 22 : Better set of param
 # =============================================================================
 
-
+"""
 DOSSIER = "../plot/param22/"
 Number_of_simulation = 40
 numbreDePoint = 10
@@ -506,10 +506,40 @@ N0 = [1.0]
 W0 = [2.0]
 
 A = [0.2] 
-M = [0.5, 1., 3.]
+M = [0.5, 1., 3.] #ralancer pour M = [1., 3.]
+
 Strength = [0.0002, 0.0005, 0.001, 0.002, 0.005, 0.01]
 Alpha = [5, 10]
 Beta = [0.5, 1., 3.] # DECREASE ! useful to compute for beta more than m/(1-a) ????
+Freq = [0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.2, 2., 4., 7., 9.]
+
+#dt = 0.02
+FinalTime = [100]
+
+Collapse = ["Collapse_proba", "Collapse_proba_per_time_unit"]
+Applicant = ["N", "W", "NW"]
+Variability = ["Variability_always", "Variability_until", "Variability_10", "Variability_only", "Variability_tr10", "Variability_tr0"]
+"""
+
+
+# =============================================================================
+# param 23 : Better set of param
+# =============================================================================
+
+
+DOSSIER = "../plot/param23/"
+Number_of_simulation = 40
+numbreDePoint = 10
+
+N0 = [1.0]
+W0 = [2.0]
+
+A = [0.2] 
+M = [0.25, 0.5, 0.75, 1., 2., 3., 4.] #ralancer pour M = [1., 3.]
+
+Strength = [0.0001, 0.0002, 0.0005, 0.001, 0.002, 0.005, 0.01]
+Alpha = [5, 10, 20]
+Beta = [0.25, 0.5, 0.75, 1., 2., 3.] # DECREASE ! useful to compute for beta more than m/(1-a) ????
 Freq = [0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.2, 2., 4., 7., 9.]
 
 #dt = 0.02
