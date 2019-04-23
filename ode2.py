@@ -210,12 +210,12 @@ class Ode:
         Y = np.zeros((self.NbreIte, 2))
         c = 0           # compteur
         Init = self.Init
-        while(c < len(self.Fire_events)):
+        while(c < self.NbreIte):
             if(self.Fire_events[c] == False):
                 c_old = c
                 Sequence = [self.Time[c]]
                 c += 1               
-                while(c < len(self.Fire_events) and self.Fire_events[c] == False):
+                while(c < self.NbreIte and self.Fire_events[c] == False):
                     Sequence += [self.Time[c]]
                     c+=1
                 Y[c_old:c] = self.solve(Init, Sequence) 

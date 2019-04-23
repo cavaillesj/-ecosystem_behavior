@@ -236,23 +236,24 @@ class Solver:
 
 
 #n0=0.5_w0=0.0_final_time=100_a=0.1_m=2.0_strength=0.0005_alpha=20_beta=2.0_freq=0.8
+
 """
-a = 0.1
+a = 0.2
 Param_phy = [a, 0.5]      # 0.2, 10
       
-#Init = [0.5, Param_phy[1]]
-Init = [1., 0]
+Init = [0.5, Param_phy[1]]
+#Init = [1., 0]
 
 
 
-Param_freq = {"p":  3} #2
+Param_freq = {"p":  5} #2
 dt = min([0.1, 0.1/Param_freq["p"]])
 
 
 finalTime = 100
-Param_strength = {"scale":1*10**-2} # 0.0008
+Param_strength = {"scale":0.002} # 0.0008
 Param_coupled = {"alpha":10, # 20
-                 "beta":0.5} # 500
+                 "beta":.5} # 500
 
 
 
