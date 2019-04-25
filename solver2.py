@@ -183,6 +183,11 @@ class Solver:
         
         var_after = np.nanmean(self.Variability_10[np.isnan(self.Collapse)])
         var_no_collapse = np.nanmean(self.Variability_10[1-np.isnan(self.Collapse)])
+        
+# =============================================================================
+# #        var_no_collapse = np.nanmean(self.Variability_0[np.isnan(self.Collapse)==False])
+# =============================================================================
+        
         var = (var_after*sum(np.isnan(self.Collapse)) + var_no_collapse*sum(1-np.isnan(self.Collapse))) / len(self.Variability_10)
         return var
 
@@ -201,6 +206,11 @@ class Solver:
         
         var_after = np.nanmean(self.Variability_0[np.isnan(self.Collapse)])
         var_no_collapse = np.nanmean(self.Variability_0[1-np.isnan(self.Collapse)])
+        
+# =============================================================================
+# #        var_no_collapse = np.nanmean(self.Variability_0[np.isnan(self.Collapse)==False])
+# =============================================================================
+        
         var = (var_after*sum(np.isnan(self.Collapse)) + var_no_collapse*sum(1-np.isnan(self.Collapse))) / len(self.Variability_0)
         return var
 
