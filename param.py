@@ -592,10 +592,12 @@ N0 = ["equilibrium"] #####
 W0 = [0, "equilibrium"] #####
 
 A = [0.2] 
-M = [0.5, 1., 2., 4.] #ralancer pour M = [1., 3.]
+#M = [0.5, 1., 2., 4., 8.] #ralancer pour M = [1., 3.]
+M = [8.]
 
 Strength = [0.0002, 0.0005, 0.001, 0.002]
-Alpha = [10, 20, 40]
+#Alpha = [5]
+Alpha = [5, 10, 20, 40]
 Beta = [1., 2., 4., 8., 16., 32.] ### DECREASE ! useful to compute for beta more than m/(1-a) ????
 Freq = [0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1., 2., 5., 10.]
 

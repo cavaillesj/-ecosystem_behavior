@@ -293,6 +293,8 @@ print("solve and save", t1-t0)
 n = 789.123
 print("nombre arrondi : ", round(n, ndigits=1))
 print("%.5f" % 0.57338244358883583)
+# scientique print with two significatif number
+print("%.2e" % 0.57338244358883583) 
 """
 
 
