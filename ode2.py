@@ -155,6 +155,14 @@ class Ode:
         Nder = n*(1-n)*(n-self.param1)
         Wder = self.param2*n - w
         return [Nder, Wder]
+    
+    
+    def F_allee_effect_adi_3(self, Y, t):
+        """ F for allee effect without dimension but """
+        n, w = Y
+        Nder = n*(1-n)*(n-self.param1)
+        Wder = self.param2*n - self.param3*w
+        return [Nder, Wder]
 
     
     def F_verhulst(self, Y, t):
@@ -389,7 +397,7 @@ class Ode:
             for i, x in enumerate(X):
                 for j, y in enumerate(Y):
                     O2 = O.copy()
-                    O2.Perturbation = np.zeros_like(O2.Perturbation)
+                    #O2.Fire_events = np.zeros_like(O2.Fire_events)
                     O2.Init = [x, y]
                     N, W = O2.solve_by_part()
                     FN[i,j], FW[i,j] = N[-1], W[-1]
@@ -403,19 +411,15 @@ class Ode:
             FN[Extinction] = 0
             FN[Equilibrium1] = 1
             FN[Equilibrium2] = self.param1
-            
-            
+                       
             FN = FN.transpose()
-
 
 #            Color = np.array([["b"]*len(X)]*len(Y))
 #            Color[Extinction] = "black"
 #            Color[Equilibrium1] = "blue"
 #            Color[Equilibrium2] = "orange"
-            
-            
+                      
             ### make a condition if either of the above is not verify, print a message warning
-
 
 #            plt.plot(color = "black", label= "extinctions")
 #            plt.plot(color = "blue", label= "equilibrium state")
@@ -425,8 +429,7 @@ class Ode:
             U = XX*(1-XX)*(XX-self.param1)
             V = self.param2*XX - YY
             
-#            print(Extinction)
-            
+#            print(Extinction)      
 #            print("\n", np.shape(XX[Extinction]))
 #            print(np.shape(U[Extinction]))
             
@@ -442,7 +445,6 @@ class Ode:
         plt.ylabel("W", fontsize=12)   
         if(show):
             plt.show()
-
         return
 
 

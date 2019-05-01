@@ -592,8 +592,8 @@ N0 = ["equilibrium"] #####
 W0 = [0, "equilibrium"] #####
 
 A = [0.2] 
-#M = [0.5, 1., 2., 4., 8.] #ralancer pour M = [1., 3.]
-M = [8.]
+M = [0.5, 1., 2., 4., 8.] #ralancer pour M = [1., 3.]
+#M = [8.]
 
 Strength = [0.0002, 0.0005, 0.001, 0.002]
 #Alpha = [5]
