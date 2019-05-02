@@ -37,7 +37,7 @@ Fire_param_default = {"model": "proportionnal",
 
 
 class Ode:
-    def __init__ (self, model = "allee_effect_adi", Init = [0.5, 0.5], Param_phy = None, solveur = "euler_ex", finalTime = 500, dt = 1.0, law_amplitude = "exponential", law_freq = "bernoulli", Fire_param = Fire_param_default):
+    def __init__ (self, model = "allee_effect_adi_3", Init = [0.5, 0.5], Param_phy = None, solveur = "euler_ex", finalTime = 500, dt = 1.0, law_amplitude = "exponential", law_freq = "bernoulli", Fire_param = Fire_param_default):
         # Physical parameter
         self.model = model
         self.Init = Init # commencr à l'équilibre
@@ -57,6 +57,13 @@ class Ode:
             else:
                 self.param1 = .4
                 self.param2 = .4
+        elif(model == "allee_effect_adi_3"):
+            if(Param_phy != None):
+                self.param1, self.param2, self.param3 = Param_phy
+            else:
+                self.param1 = .4
+                self.param2 = .4     
+                self.param3 = .4
                 
       
         # Numerical parameter
@@ -193,6 +200,7 @@ class Ode:
         
         dic_model = {"allee_effect" : self.F_allee_effect, 
                      "allee_effect_adi" : self.F_allee_effect_adi,
+                     "allee_effect_adi_3" : self.F_allee_effect_adi_3,
                      "verhulst" : self.F_verhulst}
         if(solveur == "odeint"):
             Y = odeint(dic_model[self.model], Init, Time)
@@ -455,7 +463,7 @@ class Ode:
 
 
     def collapse_computation(self):
-        if(self.model == "allee_effect_adi"):
+        if(self.model == "allee_effect_adi" or self.model == "allee_effect_adi_3"):
             if(self.N[-1] < self.param1): # collapse ?
                 self.collapse = self.Time[np.argmax(self.N < self.param1)]
                 return self.collapse # return the time of the collapse
