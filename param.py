@@ -623,15 +623,23 @@ W0 = [0] #####
 
 A = [0.2] 
 #M = [1., 2., 4.] #ralancer pour M = [1., 3.]
-M = [0.25, 0.5]
+M = [0.25, 0.5, 1.] # Use this one.
+#M = [0.25, 0.5] # KEEP M BELOW 1, OTHERWISE NO PHYSICAL MEANING
 
-D = [0.25, 0.5, 1., 2., 4.]
+#D = [0.25, 0.5, 1., 2., 4.]
+#D = [0.125, 0.25, 0.5, 1., 2., 4.]
+D = [0.03125, 0.0625, 0.125, 0.25, 0.5, 1., 2., 4.]
+#D = [0.03125, 0.0625]
+#D = [0.125]
 #M = [8.]
 
-Strength = [0.0002, 0.0005, 0.001, 0.002]
+#Strength = [0.0002, 0.0005, 0.001, 0.002, 0.005] # les trois premiers sont inutiles
+Strength = [0.01, 0.02]
+#Strength = [0.005]
 #Alpha = [5]
 Alpha = [10, 20]
-Beta = [4., 8., 16.] ### DECREASE ! useful to compute for beta more than m/(1-a) ????
+#Beta = [4., 8., 16.] ### DECREASE ! useful to compute for beta more than m/(1-a) ????
+Beta = [1., 2., 4., 8., 16.]
 Freq = [0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1., 2., 5., 10.]
 
 #dt = 0.02
