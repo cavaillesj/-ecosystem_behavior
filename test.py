@@ -309,7 +309,7 @@ print(map(lambda x:x**2, [i for i in range(10)]))
 # =============================================================================
 # ipdb
 # =============================================================================
-
+"""
 def f(a):
     print("1")
     print("1.5")
@@ -317,3 +317,26 @@ def f(a):
     return a**2
 
 f(5)
+"""
+
+
+# =============================================================================
+# subplots with title for row and column
+# =============================================================================
+"""
+import matplotlib.pyplot as plt
+
+cols = ['Column {}'.format(col) for col in range(1, 4)]
+rows = ['Row {}'.format(row) for row in ['A', 'B', 'C', 'D']]
+
+fig, axes = plt.subplots(nrows=4, ncols=3, figsize=(12, 8))
+
+for ax, col in zip(axes[0], cols):
+    ax.set_title(col)
+
+for ax, row in zip(axes[:,0], rows):
+    ax.set_ylabel(row, rotation=0, size='large')
+
+fig.tight_layout()
+plt.show()
+"""

@@ -623,23 +623,27 @@ W0 = [0] #####
 
 A = [0.2] 
 #M = [1., 2., 4.] #ralancer pour M = [1., 3.]
-M = [0.25, 0.5, 1.] # Use this one.
-#M = [0.25, 0.5] # KEEP M BELOW 1, OTHERWISE NO PHYSICAL MEANING
+#M = [0.25, 0.5, 1.] 
+#M = [0.25, 0.5] 
+#M = [0.125]
+M = [0.125, 0.25, 0.5] # KEEP M BELOW 1, OTHERWISE NO PHYSICAL MEANING
 
 #D = [0.25, 0.5, 1., 2., 4.]
 #D = [0.125, 0.25, 0.5, 1., 2., 4.]
-D = [0.03125, 0.0625, 0.125, 0.25, 0.5, 1., 2., 4.]
+D = [0.03125, 0.0625, 0.125, 0.25, 0.5]
 #D = [0.03125, 0.0625]
 #D = [0.125]
 #M = [8.]
 
 #Strength = [0.0002, 0.0005, 0.001, 0.002, 0.005] # les trois premiers sont inutiles
-Strength = [0.01, 0.02]
+#Strength = [0.01, 0.02]
+Strength = [0.001, 0.002, 0.005, 0.01, 0.02] # les trois premiers sont inutiles
 #Strength = [0.005]
 #Alpha = [5]
-Alpha = [10, 20]
+#Alpha = [10, 20]
+Alpha = [5, 40]
 #Beta = [4., 8., 16.] ### DECREASE ! useful to compute for beta more than m/(1-a) ????
-Beta = [1., 2., 4., 8., 16.]
+Beta = [2., 4., 8.]
 Freq = [0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1., 2., 5., 10.]
 
 #dt = 0.02
@@ -648,5 +652,42 @@ FinalTime = [100]
 Collapse = ["Collapse_proba", "Collapse_proba_per_time_unit"]
 Applicant = ["N", "W", "NW"]
 Variability = ["Variability_always", "Variability_until", "Variability_10", "Variability_only", "Variability_tr10", "Variability_tr0"]
+
+
+
+# =============================================================================
+# param 27 : Better set
+# =============================================================================
+
+"""
+DOSSIER = "../plot/param27/"
+Number_of_simulation = 40
+numbreDePoint = 10
+
+N0 = ["equilibrium"] #####
+W0 = [0] #####
+
+A = [0.2] 
+
+M = [0.125, 0.25, 0.5] # KEEP M BELOW 1, OTHERWISE NO PHYSICAL MEANING
+
+D = [0.03125, 0.0625, 0.125, 0.25, 0.5]
+
+
+Strength = [0.001, 0.002, 0.005, 0.01, 0.02] # les trois premiers sont inutiles
+
+Alpha = [5, 10, 20, 40]
+#Beta = [4., 8., 16.] ### DECREASE ! useful to compute for beta more than m/(1-a) ????
+Beta = [2., 4., 8.]
+
+Freq = [0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1., 2., 5., 10.]
+
+#dt = 0.02
+FinalTime = [100]
+
+Collapse = ["Collapse_proba", "Collapse_proba_per_time_unit"]
+Applicant = ["N", "W", "NW"]
+Variability = ["Variability_always", "Variability_until", "Variability_10", "Variability_only", "Variability_tr10", "Variability_tr0"]
+"""
 
 
